@@ -3,29 +3,30 @@ version: "3.7"
 services:
 
   web01:
-    image: nginx:latest
-    volumes:
-      - /home/nginx/server1/index.html:/usr/share/nginx/html/index.html
+    build:
+      context: ./
+      dockerfile: Dockerfile-nginx1
+    
     ports:
       - 80
     networks:
       - webnetwork
 
   web02:
-    image: nginx:latest
-    volumes:
-      - /home/nginx/server2/index.html:/usr/share/nginx/html/index.html
+    build:
+      context: ./
+      dockerfile: Dockerfile-nginx2
     ports:
       - 80
     networks:
       - webnetwork
 
   web:
-    image: haproxy:latest
+    build:
+      context: ./
+      dockerfile: Dockerfile-haproxy
     ports:
       - 80:80
-    volumes:
-      - /home/haproxy/:/usr/local/etc/haproxy/
     networks:
       - webnetwork
 
