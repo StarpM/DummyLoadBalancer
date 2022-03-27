@@ -5,7 +5,7 @@ services:
   web01:
     build:
       context: ./
-      dockerfile: Dockerfile-nginx1
+      dockerfile: ./resources/dockerfiles/Dockerfile-nginx1
     
     ports:
       - 80
@@ -14,8 +14,7 @@ services:
 
   web02:
     build:
-      context: ./
-      dockerfile: Dockerfile-nginx2
+      dockerfile: ./resources/dockerfiles/Dockerfile-nginx2
     ports:
       - 80
     networks:
@@ -23,8 +22,7 @@ services:
 
   web:
     build:
-      context: ./
-      dockerfile: Dockerfile-haproxy
+      dockerfile: ./resources/dockerfiles/Dockerfile-haproxy
     ports:
       - 80:80
     networks:

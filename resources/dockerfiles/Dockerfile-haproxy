@@ -1,0 +1,3 @@
+FROM haproxy:latest
+
+COPY ./resources/loadbalancer/haproxy.cfg /usr/local/etc/haproxy/
